@@ -58,50 +58,69 @@ border-radius:0;
 /*LOGIN*/
 
 .login{
-	margin-top: 145px;
+	margin-top:50px;
 	background-color:#ccebff;
 	border: 1px solid #563d7c;
+
 }
-.login-head h5{
-	text-align: center;
-	padding-bottom: 0;
-	padding-top: 0.5rem;
-	color:#1aa3ff;
-}
-.login-head{
-	margin: 0;
-	padding: 0;
-	
-}
- 
 .login hr{
   border-top: 2px solid #b4b4b4;
   width: 45%;
   margin-top: .3rem;
   margin-bottom: 0.5rem;
 }
+.login-head h5{
+	text-align: center;
+	padding-bottom: 0;
+	padding-top: 0.5rem;
+	color:#1aa3ff;
+} 
 .login-head p{
-	padding:0;
-	margin:0;
 	color: blue;
 }
+ .login-field label{
+	text-align: left;
+	display: inline-block;
+	width:80px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 .login-field {
-	
 	padding-top: 10px;
 }
-.login-field h6{
-	margin: 0;
-	padding: 0;
-}
 .login-field a{
-	
 	padding: 0;
 	padding-bottom: 0.5rem
 }
-
+.login-field button{
+	margin-bottom: 40px;
+}
 /** CARDS **/
 
-.card img{
+#card-img-home{
 	width:85%; 
 	height: 250px;
+}
+
+
+/**-- Registration Form-- **/
+.card-img-top{
+	margin: 35px 0 10px 0;
+}
+.reg-label{
+	
+	text-align: left;
+	display: inline-block;
+	width:135px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#reg-img{
+	width:85%; 
+	height: 230px;
+}
+
+#reg-card{
+	width: 470px;
+	height:560px;
 }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up | Casa de Iligan </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+<center>
+
+<!--  Navigation Pane -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+	<img src="../static/logo.jpg">
+	</a>
+    </div>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+      	<a class="nav-link" href="#">Home </a></li><span class="caret"></span>
+      <li class="nav-item">
+      	<a class="nav-link" href="#">Contact Us </a></li><span class="caret"></span>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Types of Homes </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a class="nav-link" href="#">Transient House </a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Apartment </a></li>
+          <li class="nav-item"><a class="nav-link" href="#"> Boarding House</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+<!-- End of Nav -->
+
+
+<!-- Registration Form-->
+
+<div class="login" id="reg-card">
+
+	<img class="card-img-top" id="reg-img" src="../static/reg-background.jpg"><br><br>
+
+	<div class="login-head">
+	<hr>
+	<h5>Register </h5>
+	<hr> 
+	</div>
+
+	<div class="reg-form">    
+    <form action="{{url_for('add_submit')}}" method = "post">
+
+          <label class="reg-label" id="owner-name">Name :</label>
+          <input type="text" name = "owner-name" placeholder=" Ex. Juan De la Cruz ,   . . ." align="left" required>        
+          <br>
+          <label class="reg-label" id="owner-email">Email :</label>
+          <input type="email" name="owner-email" placeholder="Ex. juan@gmail.com ,   . . ." align="right" required>
+          <br>
+          <label class="reg-label" id="owner-pass">Password :</label>
+          <input type="password" name="owner-pass" align="right" required>
+          <br>
+          <label class="reg-label" id="owner-pass-confirm">Confirm Password :</label>
+          <input type="password" name= "owner-pass-confirm" align="right" required>
+          <br>
+                  
+          <button class="btn btn-outline-info btn-md" id="reg-submit">Sign Up</button>
+
+      </form>
+	</div>
+
+	
+</div>
+
+ <!-- End of Reg Form -->
+
+
+</body>
+
+</html>
