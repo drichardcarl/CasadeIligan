@@ -6,23 +6,27 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sign Up | Casa de Iligan </title>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	
+	
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
 	<link rel="stylesheet" href="../static/style.css">
 </head>
 
-<body>
+<body >
 
 <center>
 
 <!--  Navigation Pane -->
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-  <div class="container-fluid">
+
+ <div class="container-fluid">
+  	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
 	<img src="../static/logo.jpg">
@@ -31,7 +35,7 @@
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-      	<a class="nav-link" href="#">Home </a></li><span class="caret"></span>
+      	<a class="nav-link" href="homepage.html">Home </a></li><span class="caret"></span>
       <li class="nav-item">
       	<a class="nav-link" href="#">Contact Us </a></li><span class="caret"></span>
       <li class="nav-item dropdown">
@@ -43,26 +47,27 @@
         </ul>
       </li>
     </ul>
-    
-  </div>
-</nav>
-<!-- End of Nav -->
+  </nav><!-- End of Nav -->  
+ </div>
 
 
-<!-- Registration Form-->
 
-<div class="login" id="reg-card">
+<div id="reg-main">
 
-	<img class="card-img-top" id="reg-img" src="../static/reg-background.jpg"><br><br>
+	<!-- Registration Form -->
+		<div class="login" id="reg-card">
 
-	<div class="login-head">
-	<hr>
-	<h5>Register </h5>
-	<hr> 
-	</div>
+		<img class="card-img-top" id="reg-img" src="../static/reg-background.jpg"><br><br>
+	
+		<div class="reg-body">
+		<div class="login-head">
+		<hr class="horizontal-reg">
+		<h5>Register </h5>
+		<hr class="horizontal-reg"> 
+		</div>
 
-	<div class="reg-form">    
-    <form action="{{url_for('add_submit')}}" method = "post">
+		<div class="reg-form">    
+    	<form action="{{url_for('add_submit')}}" method = "post">
 
           <label class="reg-label" id="owner-name">Name :</label>
           <input type="text" name = "owner-name" placeholder=" Ex. Juan De la Cruz ,   . . ." align="left" required>        
@@ -75,19 +80,32 @@
           <br>
           <label class="reg-label" id="owner-pass-confirm">Confirm Password :</label>
           <input type="password" name= "owner-pass-confirm" align="right" required>
-          <br>
-                  
-          <button class="btn btn-outline-info btn-md" id="reg-submit">Sign Up</button>
+          <br><br>
+          <h6 class="reg-option">Register as:</h6>
+          <input type="checkbox" name="own" value="owner"> Owner<br>
+          <input type="checkbox" name="cust" value="customer"> Customer <br>
+          <button class="btn btn-outline-info btn-md" id="reg-submit">Sign me up!</button>   
+          
 
-      </form>
-	</div>
-
+      	</form>
+		</div>
+		</div>
 	
-</div>
-
- <!-- End of Reg Form -->
-
-
+		</div><!-- End of Reg Form -->
+</div>	
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>&copy; Casa de Iligan</h5>
+				<hr class="light-100">
+			</div>
+		</div>
+	</div>
+</footer>	
 </body>
+
+
 
 </html>

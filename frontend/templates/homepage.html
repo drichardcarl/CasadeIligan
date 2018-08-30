@@ -5,8 +5,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home | Casa de Iligan </title>
+	<title>Welcome | Casa de Iligan </title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -19,15 +21,24 @@
 <body>
 <center>
 
+<!--  Navigation Pane -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-	<img src="../static/logo.jpg">
-	</a>
+    	<a class="navbar-brand" href="/">
+		<img src="../static/logo.jpg">
+		</a>
     </div>
 
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+      	<div class="searchbar">
+    	<form class="example" action="action_page.php">
+  		<input type="text" placeholder="  Search . . ." name="search">
+  		<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+    </div>
+      </li>
       <li class="nav-item active">
       	<a class="nav-link" href="#">Home </a></li><span class="caret"></span>
       <li class="nav-item">
@@ -41,9 +52,12 @@
         </ul>
       </li>
     </ul>
-    <button class="btn btn-outline-success navbar-btn">Register as Owner</button>
+    <a href="registration.html"><button class="btn btn-outline-success navbar-btn">Register</button></a>
+    
   </div>
-</nav>
+</nav><!-- End of Nav -->
+
+
 
 
 <div class="container-fluid">
@@ -60,28 +74,28 @@
 	<div class="carousel-inner" >
 	<div class="carousel-item active" >
 		
-		<img src="../static/homepage1.jpg">
+		<img src="../static/carousel-01.jpeg">
 
 		<div class="carousel-caption">
-			<h2 class="display-2"> Welcome </h2>
+			<h2 class="display-2"> WELCOME </h2>
 			<h3 class="display-2">Casa de Iligan </h3>
 		</div>
 	</div>
 	<div class="carousel-item">
 		
-		<img src="../static/homepage02.jpg">
+		<img src="../static/carousel-02.jpg">
 
 		<div class="carousel-caption">
-			<h3 class="display-2"> Transient Houses </h3>
+			<h4 class="display-2"> Transient Houses </h4>
 			<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/transient'"> Learn More </button>
 		</div>
 	</div>
 	<div class="carousel-item">
 		
-		<img src="../static/homepage03.jpg">
+		<img src="../static/carousel-03.jpg">
 
 		<div class="carousel-caption">
-			<h3 class="display-2"> Dormitories </h3>
+			<h4 class="display-2"> Dormitories </h4>
 			<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/dorm'"> Learn More </button>
 			
 		</div>
@@ -90,10 +104,10 @@
 	<div class="carousel-item">
 		
 
-		<img src="../static/homepage04.jpg">
+		<img src="../static/carousel-04.jpeg">
 
 		<div class="carousel-caption">
-			<h3 class="display-2"> Apartments </h3>
+			<h4 class="display-2"> Apartments </h4>
 			<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/apartment'"> Learn More </button>
 			
 		</div>
@@ -104,11 +118,9 @@
 
 	<div class=" jumbotron">
 		<div class="col-xs-12 col-sm-12 col-md-9 col-xl-10">
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.. </p>
+			<p class="lead">Casa de Iligan is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms within the City of Iligan. </p>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-3 col-xl-2">
-			<a href="#"><button class="btn btn-outline-secondary btn-md">About Us</button></a>
-		</div>
+		
 	</div>
 
 
@@ -147,42 +159,52 @@
 	<div class="row padding">
 		<div class="col-md-4">
 			<div class="card">
-				<img class="card-img-top" src="../static/transient.png">
+				<img class="card-img-top" id="card-img-home" src="../static/card-01.jpg">
 				<div class="card-body">
-					<h4 class="card-title">Transient Houses</h4>
+					<h4 class="card-title">Transient Houses</h4><br>
 					<p class="card-text"> Transient Houses offer self-catering studios and apartments with free WiFi. </p><br>
-					<p>** insert Hotel Camilla Radio Advertisement.</p>
-					<a href="#" class="btn btn-outline-secondary">Browse</a>
+					
+					
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="card">
-				<img class="card-img-top" src="../static/apartment.jpg">
+				<img class="card-img-top" id="card-img-home" src="../static/card-02.jpg">
 				<div class="card-body">
-					<h4 class="card-title">Apartments</h4>
+					<h4 class="card-title">Apartments</h4><br>
 					<p class="card-text"> A suite of rooms forming one residence, typically in a building containing a number of these..</p>
 					<p>A large building containing residential suites; an apartment building.</p>
-					<a href="#" class="btn btn-outline-secondary">Browse</a>
+					
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="card">
-				<img class="card-img-top" src="../static/boarding.jpg">
+				<img class="card-img-top" id="card-img-home" src="../static/card-03.jpg">
 				<div class="card-body">
-					<h4 class="card-title">Boarding Houses</h4>
+					<h4 class="card-title">Boarding Houses</h4><br>
 					<p class="card-text"> A large bedroom for a number of people in a school or institution..</p>
 					<p>A university or college hall of residence or hostel.</p>
-					<a href="#" class="btn btn-outline-secondary">Browse</a>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-
 </body>
+
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>&copy; Casa de Iligan</h5>
+				<hr class="light-100">
+			</div>
+		</div>
+	</div>
+</footer>
 
 </html>
