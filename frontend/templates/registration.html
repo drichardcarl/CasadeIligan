@@ -82,8 +82,15 @@
           <input type="password" name= "owner-pass-confirm" align="right" required>
           <br><br>
           <h6 class="reg-option">Register as:</h6>
-          <input type="checkbox" name="own" value="owner"> Owner<br>
-          <input type="checkbox" name="cust" value="customer"> Customer <br>
+
+          <div class="radio">
+		  <label><input type="radio" name="optradio" id="own" >Owner</label>
+		  </div>
+
+		  <div class="radio ">
+  		  <label><input type="radio" name="optradio" id="cust">Customer</label>
+		  </div>
+       
           <button class="btn btn-outline-info btn-md" id="reg-submit">Sign me up!</button>   
           
 
