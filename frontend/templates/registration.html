@@ -28,7 +28,7 @@
  <div class="container-fluid">
   	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="homepage.html">
 	<img src="../static/logo.jpg">
 	</a>
     </div>
@@ -69,17 +69,20 @@
 		<div class="reg-form">    
     	<form action="{{url_for('add_submit')}}" method = "post">
 
-          <label class="reg-label" id="owner-name">Name :</label>
-          <input type="text" name = "owner-name" placeholder=" Ex. Juan De la Cruz ,   . . ." align="left" required>        
+          <label class="reg-label" id="reg-name">Name :</label>
+          <input type="text" name = "reg-name" placeholder=" Ex. Juan De la Cruz ,   . . ." align="left" required>        
           <br>
-          <label class="reg-label" id="owner-email">Email :</label>
-          <input type="email" name="owner-email" placeholder="Ex. juan@gmail.com ,   . . ." align="right" required>
+          <label class="reg-label" id="reg-email">Email :</label>
+          <input type="email" name="reg-email" placeholder=" Ex. juan@gmail.com ,   . . ." align="right" required>
           <br>
-          <label class="reg-label" id="owner-pass">Password :</label>
-          <input type="password" name="owner-pass" align="right" required>
+          <label class="reg-label" id="reg-username">Username :</label>
+          <input type="text" name = "reg-username" placeholder=" Ex. Juan1234 ,   . . ." align="left" required>        
           <br>
-          <label class="reg-label" id="owner-pass-confirm">Confirm Password :</label>
-          <input type="password" name= "owner-pass-confirm" align="right" required>
+          <label class="reg-label" id="reg-pass">Password :</label>
+          <input type="password" name="reg-pass" align="right" required>
+          <br>
+          <label class="reg-label" id="reg-pass-confirm">Confirm Password :</label>
+          <input type="password" name= "reg-pass-confirm" align="right" required>
           <br><br>
           <h6 class="reg-option">Register as:</h6>
 
