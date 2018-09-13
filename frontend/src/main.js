@@ -12,14 +12,6 @@ const router = new VueRouter({
   mode: "history"
 });
 
-// Font-Awesome
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faSearch);
-Vue.component("font-awesome-icon", FontAwesomeIcon);
-dom.watch();
-
 Vue.config.productionTip = false;
 
 new Vue({
