@@ -12,12 +12,6 @@ const router = new VueRouter({
   mode: "history"
 });
 
-// Bootstrap
-import BootstrapVue from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-Vue.use(BootstrapVue);
-
 // Font-Awesome
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
