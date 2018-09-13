@@ -32,44 +32,104 @@
             </div>
           </li>
         </ul>
-        <button type="button" class="btn btn-outline-dark"><i class="fas fa-user-plus"></i></button>
-        <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i></button>
+        <button type="button" class="btn btn-outline-dark btn-sm mr-1" data-toggle="modal" data-target="#modalSignUp">
+          <i class="fas fa-user-plus mr-2"></i>Sign-Up
+        </button>
+        <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modalSignIn">
+          <i class="fas fa-sign-in-alt mr-2"></i>Sign-In
+        </button>
       </div>
     </nav>
 
-    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-      <img src="../assets/logo.png" />
-      </a>
+    <!-- Sign-In Modal -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSignInTitle">Sign-In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="userEmail">Email address</label>
+                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="userPassword">Password</label>
+                <input type="password" class="form-control" id="userPassword" placeholder="Password">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="keepLogged">
+                <label class="form-check-label" for="keepLogged">Keep me signed in</label>
+              </div>
+              <button type="submit" class="btn btn-primary col-4 offset-4">Sign-In</button>
+            </form>
+          </div>
+        </div>
       </div>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <div class="searchbar">
-        <form class="example" action="action_page.php">
-        <input type="text" placeholder="  Search . . ." name="search">
-        <button type="submit" class="btn btn-outline-primary navbar-btn btn-md"><i class="fa fa-search"></i></button>
-      </form>
-      </div>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home </a></li><span class="caret"></span>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact-us">Contact Us </a></li><span class="caret"></span>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Types of Homes </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-link" href="#">Transient House </a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Apartment </a></li>
-            <li class="nav-item"><a class="nav-link" href="#"> Boarding House</a></li>
-          </ul>
-        </li>
-      </ul>
-      <a href="/register"><button class="btn btn-outline-success navbar-btn btn-md">Register</button></a>
     </div>
-    </nav> -->
+
+    <!-- Sign-Up Modal -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSignUpTitle">Sign-Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="userFName">First Name</label>
+                  <input type="text" class="form-control" id="userFName" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="userLName">Last Name</label>
+                  <input type="text" class="form-control" id="userLName" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="userEmail">Email</label>
+                  <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="userPassword">Password</label>
+                  <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="userAddress">Address</label>
+                <input type="text" class="form-control" id="userAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="userCity">City</label>
+                  <input type="text" class="form-control" id="userCity">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="userProvince">Province</label>
+                  <input type="text" class="form-control" id="userProvince">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="userZip">Zip</label>
+                  <input type="text" class="form-control" id="userZip">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary col-4 offset-4">Sign-Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 

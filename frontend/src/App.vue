@@ -21,6 +21,6 @@ export default {
 
 <style>
 body {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 </style>

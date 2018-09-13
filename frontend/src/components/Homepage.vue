@@ -1,98 +1,63 @@
 <template>
   <div>
     <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-8">
+      <div class="row">
 
-    <div id="slides" class="carousel slide" data-ride="carousel">
-    <ul class="carousel-indicators">
-    <li data-target="#slides" data-slide-to="0" class="active"></li>
-    <li data-target="#slides" data-slide-to="1" ></li>
-    <li data-target="#slides" data-slide-to="2" ></li>
-    <li data-target="#slides" data-slide-to="3" ></li>
-    </ul>	
-    <div class="carousel-inner" >
-    <div class="carousel-item active" >
-        
-        <img src="../assets/carousel-01.png">
-
-        <div class="carousel-caption">
-            <h2 class="display-2"> WELCOME </h2>
-            <h3 class="display-2">Casa de Iligan </h3>
-        </div>
-    </div>
-    <div class="carousel-item">
-        
-        <img src="../assets/carousel-02.png">
-
-        <div class="carousel-caption">
-            <h4 class="display-2"> Transient Houses </h4>
-            <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/transient'"> Learn More </button>
-        </div>
-    </div>
-    <div class="carousel-item">
-        
-        <img src="../assets/carousel-03.png">
-
-        <div class="carousel-caption">
-            <h4 class="display-2"> Dormitories </h4>
-            <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/dorm'"> Learn More </button>
-            
-        </div>
-    </div>
-
-    <div class="carousel-item">
-        
-
-        <img src="../assets/carousel-04.png">
-
-        <div class="carousel-caption">
-            <h4 class="display-2"> Apartments </h4>
-            <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/apartment'"> Learn More </button>
-            
-        </div>
-    </div>
-
-    </div>
-    </div>
-
-    <div class=" jumbotron">
-        <div class="col-xs-12 col-sm-12 col-md-9 col-xl-10">
-            <p class="lead">Casa de Iligan is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms within the City of Iligan. </p>
-        </div>
-        
-    </div>
-
-
-    </div>
-
-    <div class="col-md-4">
-
-    <div class="login">
-            <div class="login-head">
-            <br><hr>
-            <h5>Login Credentials</h5>
-            
-            <hr>
+        <div id="slides" class="carousel slide" data-ride="carousel">
+          <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1" ></li>
+            <li data-target="#slides" data-slide-to="2" ></li>
+            <li data-target="#slides" data-slide-to="3" ></li>
+          </ul>	
+          <div class="carousel-inner" >
+            <div class="carousel-item active" >
+              <img src="../assets/carousel-01.png">
+              <div class="carousel-caption">
+                  <h2 class="display-2"> WELCOME </h2>
+                  <h3 class="display-2">Casa de Iligan </h3>
+              </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/carousel-02.png">
+                <div class="carousel-caption">
+                    <h4 class="display-2"> Transient Houses </h4>
+                    <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/transient'"> Learn More </button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/carousel-03.png">
+                <div class="carousel-caption">
+                    <h4 class="display-2"> Dormitories </h4>
+                    <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/dorm'"> Learn More </button>
+                </div>
             </div>
 
-            <div class="login-field">
-            <form action="" method = "post">
-                <label id="username">Username :</label>
-                <input type="text" name = "user" placeholder="  Ex. Juan96" align="left" required> <br>
-                <label id="password-input-field" >Password :</label>
-                <input type="password" name = "pass" align="left" required> <br>
-                <button type="button" class="btn btn-outline-info btn-sm" onclick="window.location.href='/apartment'"> Sign in </button>
-                
-            </form>
+            <div class="carousel-item">
+                <img src="../assets/carousel-04.png">
+                <div class="carousel-caption">
+                    <h4 class="display-2"> Apartments </h4>
+                    <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/apartment'"> Learn More </button>
+                </div>
             </div>
-    </div>
 
+          </div>
+          <a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#slides" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
 
-    </div>
-
-
-    </div>
+        <div class=" jumbotron">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-xl-10">
+                <p class="lead">Casa de Iligan is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms within the City of Iligan. </p>
+            </div>
+        </div>
+      </div>
     </div>
 
     <div class="container-fluid padding">
@@ -144,7 +109,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 /*CAROUSEL*/
-
 .carousel-caption {
   position: absolute;
   top: 50%;
@@ -168,10 +132,16 @@ export default {
   text-shadow: 1px 1px 15px #000;
   padding-bottom: 1rem;
 }
-.carousel-item img {
+.carousel-item {
   width: 100%;
   height: 400px;
 }
+
+.carousel-item > img {
+  width: 100%;
+  height: auto;
+}
+
 .btn-outline-info {
   margin: 5px 0 20px 10px;
 }
@@ -181,7 +151,7 @@ export default {
 }
 
 .jumbotron {
-  padding: 0.5rem;
+  padding: 20px;
   border-radius: 0;
 }
 /*LOGIN*/
