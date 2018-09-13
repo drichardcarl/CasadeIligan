@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+
+    'corsheaders',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +139,13 @@ else:
 CORS_ORIGIN_WHITELIST = (
     'localhost:8081',
 )
+
+AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
