@@ -32,12 +32,29 @@
             </div>
           </li>
         </ul>
-        <button type="button" class="btn btn-outline-dark btn-sm mr-1" data-toggle="modal" data-target="#modalSignUp">
-          <i class="fas fa-user-plus mr-2"></i>Sign-Up
-        </button>
-        <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modalSignIn">
-          <i class="fas fa-sign-in-alt mr-2"></i>Sign-In
-        </button>
+
+        <template v-if="!authenticated">
+          <button type="button" class="btn btn-outline-dark btn-sm mr-1" data-toggle="modal" data-target="#modalSignUp">
+            <i class="fas fa-user-plus mr-2"></i>Sign-Up
+          </button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modalSignIn">
+            <i class="fas fa-sign-in-alt mr-2"></i>Sign-In
+          </button>
+        </template>
+
+        <template v-if="authenticated">
+          <div class="btn-group">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ si_username }}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <h6 class="dropdown-header">{{ si_email }}</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Account Settings</a>
+              <a class="dropdown-item" href="#" v-on:click="logout">Logout</a>
+            </div>
+          </div>
+        </template>
       </div>
     </nav>
 
@@ -52,19 +69,15 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form v-on:submit.prevent="onSignIn">
               <div class="form-group">
-                <label for="userEmail">Email address</label>
-                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="siEmail">Email address</label>
+                <input v-model="si_email" type="email" class="form-control" id="siEmail" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
-                <label for="userPassword">Password</label>
-                <input type="password" class="form-control" id="userPassword" placeholder="Password">
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="keepLogged">
-                <label class="form-check-label" for="keepLogged">Keep me signed in</label>
+                <label for="siPassword">Password</label>
+                <input v-model="si_password" type="password" class="form-control" id="siPassword" placeholder="Password">
               </div>
               <button type="submit" class="btn btn-primary col-4 offset-4">Sign-In</button>
             </form>
@@ -84,7 +97,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form v-on:submit.prevent="onSignUp">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="userFName">First Name</label>
@@ -97,12 +110,12 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="userEmail">Email</label>
-                  <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                  <label for="suEmail">Email</label>
+                  <input type="email" class="form-control" id="suEmail" placeholder="Email">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="userPassword">Password</label>
-                  <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                  <label for="suPassword">Password</label>
+                  <input type="password" class="form-control" id="suPassword" placeholder="Password">
                 </div>
               </div>
               <div class="form-group">
@@ -135,7 +148,81 @@
 
 <script>
 export default {
-  name: "NavBar"
+  data: function() {
+    return {
+      si_email: "",
+      si_password: "",
+      si_username: "",
+
+      authenticated: false
+    };
+  },
+  name: "NavBar",
+  methods: {
+    getUsername() {
+      this.si_username = this.si_email.match("[^@]*")[0];
+      console.log(this.si_username);
+    },
+    getAuthUser() {
+      // check if a user is logged-in
+      const url = "/auth/user/";
+      this.$backend.get(url).then(
+        response => {
+          // someone is logged-in
+          console.log(response);
+          this.authenticated = true;
+          this.si_username = response.data.username;
+          this.si_email = response.data.email;
+        },
+        error => {
+          // no logged-in user
+          console.log(error);
+          this.authenticated = false;
+        }
+      );
+    },
+    logout() {
+      const url = "/auth/logout/";
+      this.$backend.post(url).then(
+        response => {
+          console.log(response);
+          this.getAuthUser();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    },
+
+    onSignIn() {
+      this.getUsername();
+      const url = "/auth/login/";
+      this.$backend
+        .post(url, {
+          username: this.si_username,
+          email: this.si_email,
+          password: this.si_password
+        })
+        .then(
+          response => {
+            console.log(response);
+            this.authenticated = true;
+            $("#modalSignIn").modal("hide");
+          },
+          error => {
+            alert("Invalid Email Address or Password!");
+          }
+        );
+    },
+    onSignUp() {
+      console.log("sign-up!");
+    }
+  },
+  mounted: function() {
+    this.$nextTick(function() {
+      this.getAuthUser();
+    });
+  }
 };
 </script>
 

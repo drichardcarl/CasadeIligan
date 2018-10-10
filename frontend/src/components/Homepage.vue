@@ -101,9 +101,21 @@
 </template>
 
 <script>
-export default {
-  name: "Homepage"
-};
+// import APIService from "../APIService";
+// const api = new APIService();
+// export default {
+//   data: function() {
+//     return {
+//       users: []
+//     };
+//   },
+//   name: "Homepage",
+//   methods: {},
+//   mounted: function() {
+//     this.users = api.getUsers();
+//     console.log(this.users);
+//   }
+// };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
