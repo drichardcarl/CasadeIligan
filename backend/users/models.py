@@ -9,6 +9,7 @@ class CustomUser(AbstractUser):
     # email = models.EmailField(_("Email"), unique=True)
     # password = models.CharField(_("Password"), max_length=255)
     address = models.CharField(_("Address"), max_length=255)
+    REQUIRED_FIELDS = ['email','first_name','last_name','address','password']
 
     def __str__(self):
         return self.email

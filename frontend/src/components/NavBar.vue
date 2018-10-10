@@ -45,10 +45,10 @@
         <template v-if="authenticated">
           <div class="btn-group">
             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ si_username }}
+            {{ this.user.username }}
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <h6 class="dropdown-header">{{ si_email }}</h6>
+              <h6 class="dropdown-header">{{ this.user.email }}</h6>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Account Settings</a>
               <a class="dropdown-item" href="#" v-on:click="logout">Logout</a>
@@ -101,39 +101,39 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="userFName">First Name</label>
-                  <input type="text" class="form-control" id="userFName" placeholder="First Name">
+                  <input type="text" class="form-control" id="userFName" placeholder="First Name" v-model="su_fname">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="userLName">Last Name</label>
-                  <input type="text" class="form-control" id="userLName" placeholder="Last Name">
+                  <input type="text" class="form-control" id="userLName" placeholder="Last Name" v-model="su_lname">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="suEmail">Email</label>
-                  <input type="email" class="form-control" id="suEmail" placeholder="Email">
+                  <input type="email" class="form-control" id="suEmail" placeholder="Email" v-model="su_email">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="suPassword">Password</label>
-                  <input type="password" class="form-control" id="suPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="suPassword" placeholder="Password" v-model="su_password">
                 </div>
               </div>
               <div class="form-group">
                 <label for="userAddress">Address</label>
-                <input type="text" class="form-control" id="userAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="userAddress" placeholder="1234 Main St" v-model="su_address">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-3">
                   <label for="userCity">City</label>
-                  <input type="text" class="form-control" id="userCity">
+                  <input type="text" class="form-control" id="userCity" v-model="su_city">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="userProvince">Province</label>
-                  <input type="text" class="form-control" id="userProvince">
+                  <input type="text" class="form-control" id="userProvince" v-model="su_province">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="userZip">Zip</label>
-                  <input type="text" class="form-control" id="userZip">
+                  <input type="text" class="form-control" id="userZip" v-model="su_zip">
                 </div>
               </div>
               <button type="submit" class="btn btn-primary col-4 offset-4">Sign-Up</button>
@@ -154,14 +154,50 @@ export default {
       si_password: "",
       si_username: "",
 
+      su_fname: "",
+      su_lname: "",
+      su_email: "",
+      su_password: "",
+      su_address: "",
+      su_city: "",
+      su_province: "",
+      su_zip: "",
+
+      user: {},
+
       authenticated: false
     };
   },
   name: "NavBar",
   methods: {
-    getUsername() {
-      this.si_username = this.si_email.match("[^@]*")[0];
-      console.log(this.si_username);
+    getData() {
+      let address =
+        this.su_address +
+        ", " +
+        this.su_city +
+        ", " +
+        this.su_province +
+        ", " +
+        this.su_zip;
+      let username = this.getUsername(this.su_email);
+
+      let data = {
+        username: username,
+        email: this.su_email,
+        password1: this.su_password,
+        password2: this.su_password,
+        address: address,
+        first_name: this.su_fname,
+        last_name: this.su_lname
+      };
+
+      console.log(data);
+      return data;
+    },
+    getUsername(email) {
+      let username = email.match("[^@]*")[0];
+      console.log(username);
+      return username;
     },
     getAuthUser() {
       // check if a user is logged-in
@@ -171,8 +207,9 @@ export default {
           // someone is logged-in
           console.log(response);
           this.authenticated = true;
-          this.si_username = response.data.username;
-          this.si_email = response.data.email;
+          // this.si_username = response.data.username;
+          // this.si_email = response.data.email;
+          this.user = response.data;
         },
         error => {
           // no logged-in user
@@ -195,7 +232,7 @@ export default {
     },
 
     onSignIn() {
-      this.getUsername();
+      this.si_username = this.getUsername(this.si_email);
       const url = "/auth/login/";
       this.$backend
         .post(url, {
@@ -215,7 +252,17 @@ export default {
         );
     },
     onSignUp() {
-      console.log("sign-up!");
+      const url = "/auth/register/";
+      this.$backend.post(url, this.getData()).then(
+        response => {
+          console.log(response);
+          this.getAuthUser();
+          $("#modalSignUp").modal("hide");
+        },
+        error => {
+          console.log(error);
+        }
+      );
     }
   },
   mounted: function() {
