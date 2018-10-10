@@ -14,9 +14,8 @@ Vue.use(VueAxios, axios);
 Vue.prototype.$backend = axios.create({
   baseURL: "http://localhost:8082/api/v1",
   withCredentials: true,
-  headers: {
-    "X-Requested-With": "XMLHttpRequest"
-  }
+  xsrfCookieName: "csrftoken",
+  xsrfHeaderName: "X-CSRFToken"
 });
 
 const router = new VueRouter({
