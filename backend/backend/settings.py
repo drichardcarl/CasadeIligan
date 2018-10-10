@@ -142,18 +142,23 @@ if DEBUG:
 else:
   STATIC_ROOT=os.path.join(BASE_DIR,'static/')
 
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ORIGIN_WHITELIST = (
     'localhost:8081',
 )
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+REST_SESSION_LOGIN = True
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    )
 }
