@@ -6,9 +6,16 @@ from allauth.utils import email_address_exists
 from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 
+from rest_auth import serializers as auth_serializers
+
 from django.utils.translation import ugettext_lazy as _
 
 class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = '__all__'
+
+class UserDetailsSerializer(auth_serializers.UserDetailsSerializer):
     class Meta:
         model = CustomUser
         fields = '__all__'

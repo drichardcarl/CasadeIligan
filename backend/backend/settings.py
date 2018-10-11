@@ -166,3 +166,7 @@ REST_FRAMEWORK = {
 REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
 }
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'users.serializers.UserDetailsSerializer',
+}

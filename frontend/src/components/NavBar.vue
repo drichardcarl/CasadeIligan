@@ -243,7 +243,7 @@ export default {
         .then(
           response => {
             console.log(response);
-            this.authenticated = true;
+            this.getAuthUser();
             $("#modalSignIn").modal("hide");
           },
           error => {
@@ -260,7 +260,7 @@ export default {
           $("#modalSignUp").modal("hide");
         },
         error => {
-          console.log(error);
+          console.log(error.response);
         }
       );
     }
