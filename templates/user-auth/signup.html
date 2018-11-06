@@ -1,0 +1,80 @@
+{% extends 'user-auth/base.html'%} {% load static %} {% block signIn %}
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 col-md-5">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+                Sign Up
+            </span>
+                <span class="login100-form-title p-b-48">
+                    <a href="/"><i class="zmdi zmdi-home"></i></a>
+                </span>
+
+                <div class="form-row">
+                    <div class="wrap-input100 validate-input col" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="firstName">
+                        <span class="focus-input100" data-placeholder="First Name"></span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="wrap-input100 validate-input col" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="lastName">
+                        <span class="focus-input100" data-placeholder="Last Name"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="wrap-input100 validate-input col" data-validate="Valid email is: a@b.c">
+                        <input class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Email"></span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="wrap-input100 validate-input col" data-validate="Enter password">
+                        <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span>
+                        <input class="input100" type="password" name="pass">
+                        <span class="focus-input100" data-placeholder="Password"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="wrap-input100 validate-input col-12" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="address">
+                        <span class="focus-input100" data-placeholder="Local Address"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="wrap-input100 validate-input col" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="city">
+                        <span class="focus-input100" data-placeholder="City"></span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="wrap-input100 validate-input col" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="province">
+                        <span class="focus-input100" data-placeholder="Province"></span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="wrap-input100 validate-input col" data-validate="Cannot be empty">
+                        <input class="input100" type="text" name="zip">
+                        <span class="focus-input100" data-placeholder="Zip Code"></span>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn mx-auto col-6">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="dropDownSelect1"></div>
+
+{% endblock signIn %}
